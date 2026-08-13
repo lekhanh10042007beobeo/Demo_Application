@@ -3,7 +3,11 @@
 const BASE_URL = "https://hidropoietic-unloyally-eleonor.ngrok-free.dev/songs/";
 
 export async function getAllSongs() {
-    const reponseData = await fetch(BASE_URL + "getallsongs");
+    const reponseData = await fetch(BASE_URL + "getallsongs", {
+        headers: {
+            "ngrok-skip-browser-warning": "true"
+        }
+    });
 
     if (!reponseData.ok) {
         throw new Error("Cannot get songList");
