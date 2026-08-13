@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music & Chat App</title>
+    <link rel="stylesheet" href="./song.css">
+    <link rel="stylesheet" href="../ChatPage/chat.css">
+    <link rel="stylesheet" href="../SongDetailPage/songdetail.css">
+    <link rel="stylesheet" href="../UserInfoPage/userinfo.css">
+
+</head>
+
+<body>
+    <!-- GIAO DIỆN CHÍNH CỨU ỨNG DỤNG -->
+    <div id="app-container" class="app-container">
+
+        <!-- CỘT 1: THANH ĐIỀU HƯỚNG / THƯ VIỆN BÊN TRÁI -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <h2>🎵 MusicApp</h2>
+            </div>
+            <nav class="sidebar-menu">
+                <ul>
+                    <li class="active" id="navHome">Trang chủ</li>
+                    <li id="navSearch">Tìm kiếm</li>
+                    <li id="navLibrary">Bài hát yêu thích</li>
+                </ul>
+            </nav>
+            <div class="user-profile-section">
+                <span id="displayUsername">Khách</span>
+            </div>
+        </aside>
+
+        <!-- CỘT 2: KHUNG NỘI DUNG CHÍNH & TRÌNH PHÁT NHẠC -->
+        <main class="main-content">
+            <!-- Header phía trên gồm Thanh tìm kiếm và Khu vực Đăng nhập/Đăng ký góc phải -->
+            <header class="main-header">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Nhập tên bài hát cần tìm...">
+                    <button id="searchBtn">Tìm kiếm</button>
+                </div>
+
+                <!-- KHU VỰC ĐĂNG NHẬP / ĐĂNG KÝ Ở GÓC PHẢI -->
+                <div id="auth-header-section" class="auth-header-section">
+                    <button id="showLoginModalBtn" class="auth-top-btn login-trigger">Đăng nhập</button>
+                    <button id="showRegisterModalBtn" class="auth-top-btn register-trigger">Đăng ký</button>
+                    <button id="logoutButton" class="auth-top-btn register-trigger">Đăng xuất</button>
+                </div>
+            </header>
+
+            <!-- Khu vực hiển thị danh sách bài hát gợi ý -->
+            <section id="recommended-songs-section" class="content-section">
+                <h3 id="songListType">Bài hát gợi ý dành cho bạn</h3>
+                <ul id="songList">
+                    <!-- Dữ liệu bài hát gợi ý sẽ được JS đổ vào đây sau -->
+                </ul>
+            </section>
+        </main>
+
+        <!-- CỘT 3: KHUNG CHÁT 1-1 BÊN PHẢI -->
+        <aside class="chat-sidebar">
+            <!-- Header & Tìm kiếm người dùng -->
+            <div class="chat-header">
+                <h3>Tin nhắn 1-1</h3>
+                <div class="search-user-box">
+                    <input type="text" id="searchUserChatInput" placeholder="Tìm kiếm user">
+                    <button id="searchUserChatBtn">Tìm</button>
+                </div>
+            </div>
+
+            <!-- Danh sách kết quả tìm kiếm / Danh sách bạn bè để chọn -->
+            <div id="userSearchResults" class="user-search-results">
+                <!-- Các item user tìm thấy sẽ đổ vào đây bằng JS -->
+                <ul id="userChatList"></ul>
+            </div>
+
+        </aside>
+
+    </div>
+
+    <!-- THANH TRÌNH PHÁT NHẠC CỐ ĐỊNH Ở DƯỚI (PLAYER) -->
+    <div id="player-container" class="player-container">
+        <div class="now-playing-info">
+            <h4 id="nowPlayingTitle">Chưa có bài hát nào được chọn</h4>
+        </div>
+        <div class="player-controls">
+            <audio id="mySong" controls></audio>
+            <div class="control-buttons">
+                <!--<button id="playSong">Phát</button>
+                <button id="pauseSong">Tạm dừng</button>
+                <button id="replaySong">Phát lại từ đầu</button> -->
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal Đăng Nhập -->
+    <div id="loginModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span id="closeModalBtn" style="cursor: pointer; float: right;">&times;</span>
+            <h2>Đăng nhập </h2>
+            <form id="loginForm">
+                <input type="text" id="username" placeholder="Nhập tài khoản..." required><br>
+                <input type="password" id="password" placeholder="Nhập mật khẩu..." required><br>
+                <button type="submit" id="loginButton">Xác nhận đăng nhập</button>
+                <span id="loginErrorMessage" class="error-message"></span>
+            </form>
+        </div>
+    </div>
+
+    <!-- KHUNG CHAT CHI TIẾT (Hiện lên khi chọn 1 user) -->
+    <div id="activeChatBox" class="active-chat-box" style="display: none;">
+
+
+    </div>
+
+    <!--SONG DETAIL PAGE-->
+    <div id="songDetailContainer">
+
+
+    </div>
+
+    <!-- USER INFO PAGE -->
+    <div id="userInfoContainer">
+
+    </div>
+
+
+
+    <script type="module" src="./song.js"></script>
+</body>
+
+</html>

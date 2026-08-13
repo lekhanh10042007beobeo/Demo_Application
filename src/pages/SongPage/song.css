@@ -1,0 +1,712 @@
+/* Thiết lập chung theo phong cách tối (Dark theme giống Spotify) */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #121212;
+    color: #ffffff;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Bố cục chính của ứng dụng (Chia 3 cột) */
+.app-container {
+    display: grid;
+    grid-template-columns: 240px 1fr 300px;
+    height: calc(100vh - 90px);
+    /* Trừ đúng chiều cao của .player-container */
+    background-color: #000;
+    gap: 8px;
+    padding: 8px;
+}
+
+/* ================= CỘT 1: SIDEBAR TRÁI ================= */
+.sidebar {
+    background-color: #121212;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar-logo h2 {
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.sidebar-menu ul {
+    list-style: none;
+}
+
+.sidebar-menu li {
+    padding: 10px 0;
+    color: #b3b3b3;
+    cursor: pointer;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.sidebar-menu li:hover,
+.sidebar-menu li.active {
+    color: #fff;
+}
+
+.user-profile-section {
+    border-top: 1px solid #282828;
+    padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#displayUsername {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#logoutBtn {
+    background: transparent;
+    border: 1px solid #727272;
+    color: white;
+    padding: 6px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+#logoutBtn:hover {
+    border-color: #fff;
+}
+
+/* ================= CỘT 2: NỘI DUNG CHÍNH ================= */
+.main-content {
+    background-color: #121212;
+    border-radius: 8px;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 20px;
+}
+
+.search-box {
+    flex: 1;
+    display: flex;
+    gap: 10px;
+}
+
+#searchInput {
+    flex: 1;
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: none;
+    background-color: #242424;
+    color: white;
+    font-size: 13px;
+}
+
+#searchBtn {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    background-color: #fff;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+#searchBtn:hover {
+    background-color: #f0f0f0;
+}
+
+/* Khu vực nút Đăng nhập / Đăng ký ở góc phải header */
+.auth-header-section {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.auth-top-btn {
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 13px;
+    border: none;
+    transition: transform 0.1s ease;
+}
+
+.auth-top-btn:active {
+    transform: scale(0.95);
+}
+
+.login-trigger {
+    background-color: transparent;
+    color: #ffffff;
+}
+
+.login-trigger:hover {
+    color: #1db954;
+}
+
+.register-trigger {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.register-trigger:hover {
+    background-color: #f0f0f0;
+}
+
+.content-section h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+#songList {
+    list-style: none;
+}
+
+#songList li {
+    padding: 12px;
+    background-color: #181818;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* Khung chứa tiêu đề và ô tìm kiếm ở cột phải */
+.chat-header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    /* Tạo khoảng cách đều đặn giữa tiêu đề và ô tìm kiếm, tránh bị đè */
+    margin-bottom: 10px;
+}
+
+.chat-header h3 {
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff;
+    margin: 0;
+}
+
+/* Khung chứa ô input và nút tìm kiếm */
+.search-user-box {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+}
+
+#searchUserChatInput {
+    flex: 1;
+    min-width: 0;
+    /* Ngăn ô input bị bóp méo khi không đủ chỗ */
+    padding: 8px 12px;
+    border-radius: 20px;
+    border: 1px solid #333;
+    background-color: #242424;
+    color: white;
+    font-size: 12px;
+}
+
+#searchUserChatInput:focus {
+    outline: none;
+    border-color: #1db954;
+}
+
+#searchUserChatBtn {
+    padding: 8px 14px;
+    background-color: #282828;
+    border: 1px solid #333;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+#searchUserChatBtn:hover {
+    background-color: #3e3e3e;
+    border-color: #fff;
+}
+
+/* Danh sách kết quả tìm kiếm user */
+.user-search-results {
+    max-height: 150px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.user-result-item {
+    padding: 8px 10px;
+    background-color: #181818;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background 0.2s;
+}
+
+.user-result-item:hover {
+    background-color: #282828;
+}
+
+/* Khung chat chi tiết 1-1 */
+#activeChatBox {
+    display: none;
+    position: fixed;
+    bottom: 100px;
+    /* Đẩy lên cao hơn thanh audio (90px chiều cao + khoảng cách) để không bị che */
+    right: 20px;
+    width: 280px;
+    /* Thu nhỏ lại chút cho khớp hoàn toàn với độ rộng cột 3 (300px trừ padding) */
+    height: 380px;
+    z-index: 9999;
+}
+
+.active-chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #282828;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #1db954;
+}
+
+#closeChatBtn {
+    background: transparent;
+    border: none;
+    color: #b3b3b3;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#closeChatBtn:hover {
+    color: #fff;
+}
+
+.chat-messages {
+    flex: 1;
+    background-color: #121212;
+    border-radius: 4px;
+    padding: 8px;
+    overflow-y: auto;
+    margin-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.chat-input-area {
+    display: flex;
+    gap: 5px;
+}
+
+#chatInput {
+    flex: 1;
+    padding: 8px;
+    border-radius: 4px;
+    border: none;
+    background-color: #242424;
+    color: white;
+    font-size: 12px;
+}
+
+#sendChatBtn {
+    padding: 8px 12px;
+    background-color: #1db954;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+#sendChatBtn:hover {
+    background-color: #1ed760;
+}
+
+/* ================= THANH TRÌNH PHÁT NHẠC (PLAYER) DƯỚI CÙNG ================= */
+.player-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    background-color: #181818;
+    border-top: 1px solid #282828;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    z-index: 8888;
+    /* Nằm dưới popup chat nhưng nổi lên trên nền app */
+}
+
+.now-playing-info h4 {
+    font-size: 14px;
+    font-weight: normal;
+    color: #fff;
+}
+
+.player-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    flex: 1;
+    /* Giúp cụm điều khiển chiếm không gian ở giữa */
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.control-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.control-buttons button {
+    padding: 5px 12px;
+    background-color: #282828;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.control-buttons button:hover {
+    background-color: #3e3e3e;
+}
+
+/* Tùy chỉnh từng dòng bài hát (li) */
+#songList li {
+    display: flex;
+    justify-content: space-between;
+    /* Đẩy tên bài hát sang trái, nút bấm sang phải */
+    align-items: center;
+    /* Căn giữa theo chiều dọc */
+    background-color: #181818;
+    /* Màu nền tối nhẹ cho từng dòng */
+    padding: 12px 16px;
+    /* Tạo khoảng trống bên trong cho thoáng */
+    margin-bottom: 8px;
+    /* Khoảng cách giữa các bài hát */
+    border-radius: 6px;
+    /* Bo tròn các góc */
+    color: #ffffff;
+    /* Chữ trắng */
+    transition: background-color 0.2s;
+}
+
+/* Hiệu ứng khi di chuột vào từng bài hát */
+#songList li:hover {
+    background-color: #282828;
+}
+
+/* Tùy chỉnh cái nút bấm bên trong */
+#songList li button {
+    background-color: #1db954;
+    /* Màu xanh kiểu Spotify */
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 20px;
+    /* Nút bấm bo tròn hình viên thuốc */
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#songList li button:hover {
+    background-color: #1ed760;
+    /* Sáng lên khi rê chuột vào nút */
+}
+
+/* Style for login form */
+
+/* 1. Nền mờ và căn giữa modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+/* 2. Hộp nội dung (đồng bộ màu với app) */
+.modal-content {
+    background-color: #121212;
+    color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    width: 350px;
+    border: 1px solid #333;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* 3. Nút đóng (X) */
+#closeModalBtn {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#closeModalBtn:hover {
+    color: #fff;
+}
+
+/* 4. Tiêu đề */
+.modal-content h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* 5. Ô nhập liệu */
+.modal-content input[type="text"],
+.modal-content input[type="password"] {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 12px;
+    background-color: #242424;
+    border: 1px solid #333;
+    border-radius: 4px;
+    color: white;
+    box-sizing: border-box;
+}
+
+.modal-content input:focus {
+    outline: none;
+    border-color: #1db954;
+}
+
+/* 6. Phần hiển thị mật khẩu */
+.password-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #b3b3b3;
+}
+
+.password-group input[type="checkbox"] {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+/* 7. Nút đăng nhập */
+.modal-content button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #1db954;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal-content button[type="submit"]:hover {
+    background-color: #1ed760;
+}
+
+.error-message {
+    color: rgb(115, 138, 230);
+    font-size: 14px;
+    display: block;
+    margin: 5px 0;
+}
+
+/* --- CSS CHO KHUNG TIN NHẮN 1-1 BÊN PHẢI --- */
+
+/* Danh sách ul chứa các user */
+.user-search-results ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+}
+
+/* Từng dòng user (li) căn chỉnh gọn gàng, có hiệu ứng hover */
+.user-search-results li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    margin-bottom: 6px;
+    background-color: #181818;
+    /* Màu nền card giống list bài hát */
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.user-search-results li:hover {
+    background-color: #282828;
+    /* Sáng lên khi rê chuột vào */
+}
+
+/* Tên username */
+.user-search-results span {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Nút Chat style gọn gàng, đồng bộ màu xanh với nút Play */
+.user-search-results button {
+    background-color: #1db954;
+    /* Màu xanh lá chủ đạo */
+    color: #ffffff;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 20px;
+    /* Bo tròn kiểu viên thuốc nhìn hiện đại */
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.user-search-results button:hover {
+    background-color: #1ed760;
+    transform: scale(1.05);
+    /* Hiệu ứng phóng to nhẹ khi bấm */
+}
+
+#activeChatBox {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 320px;
+    /* Đặt cứng chiều rộng khớp với chat.css */
+    height: 420px;
+    /* Đặt cứng chiều cao khớp với chat.css */
+    z-index: 9999;
+}
+
+/* Khung chứa danh sách user */
+.user-search-results {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+    max-height: calc(100vh - 180px);
+    /* Giúp danh sách giãn dài xuống tận sát dưới player */
+}
+
+/* Định dạng danh sách ul */
+#userChatList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    /* Khoảng cách giữa các dòng user */
+}
+
+/* Từng dòng user (li) */
+#userChatList li {
+    background-color: #181818;
+    border: 1px solid #282828;
+    padding: 10px 14px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s;
+}
+
+#userChatList li:hover {
+    background-color: #242424;
+    /* Hiệu ứng sáng lên khi di chuột vào */
+}
+
+/* Tên hiển thị của user (ownername) */
+#userChatList li span {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Nút chat */
+#userChatList li button {
+    background-color: #1db954;
+    color: #ffffff;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 16px;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+#userChatList li button:hover {
+    background-color: #1ed760;
+    transform: scale(1.05);
+}
+
+/* Khung bọc giao diện chi tiết bài hát */
+#songDetailContainer {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* Tăng số pixel lên (ví dụ 130px) để khung dịch xuống sâu hơn nữa */
+    transform: translate(calc(-50% - 60px), calc(-50% + 220px));
+    width: 320px;
+    height: auto;
+    z-index: 99999;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    display: none;
+}
+
+/* Ép khung nội dung userinfo dính thẳng xuống góc dưới bên phải */
+.user-info-popup-content {
+    position: fixed !important;
+    bottom: 5px !important;
+    /* Sát đáy màn hình (cách lên một tí cho đẹp hoặc để 0px nếu muốn dính tịt đáy) */
+    right: 0px !important;
+    /* Sát mép phải màn hình tuyệt đối */
+    background-color: #181818;
+    color: #ffffff;
+    padding: 24px;
+    border-radius: 12px;
+    width: 300px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    border: 1px solid #282828;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    box-sizing: border-box;
+    z-index: 9999 !important;
+}

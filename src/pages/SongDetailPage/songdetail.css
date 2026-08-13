@@ -1,0 +1,231 @@
+/* Lớp phủ bên ngoài làm tối nền phía sau */
+.song-detail-overlay {
+    position: fixed;
+    bottom: 20px;
+    /* Nằm góc dưới bên trái hoặc giữa tuỳ bạn chọn */
+    left: 20px;
+    /* Cách lề trái màn hình 20px (hoặc đổi thành right: 20px nếu muốn góc phải) */
+    width: 320px;
+    /* Cố định chiều rộng khớp với các khung khác */
+    height: auto;
+    /* Chiều cao tự động co giãn theo nội dung */
+
+    background-color: transparent;
+    /* Giữ nguyên trong suốt nếu không muốn làm tối nền */
+    backdrop-filter: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: fadeIn 0.3s ease;
+}
+
+/* .song-detail-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    background-color: transparent;
+    backdrop-filter: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: fadeIn 0.3s ease;
+
+} */
+
+/* Khung chi tiết bài hát */
+.song-detail-content {
+    background-color: #181818;
+    border-radius: 16px;
+    width: 380px;
+    /* Đặt độ rộng vừa phải ở giữa */
+    padding: 30px 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+    border: 1px solid #282828;
+}
+
+/* .song-detail-content {
+    background-color: #121212;
+    border-radius: 16px;
+    width: 400px;
+    padding: 40px 30px;
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+    border: 1px solid #282828;
+} */
+
+/* Nút tắt góc phải */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    color: #b3b3b3;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    padding: 5px;
+    display: flex;
+}
+
+.close-btn:hover {
+    color: #ffffff;
+}
+
+/* Khu vực hiển thị ảnh bài hát hoặc đĩa than */
+/* .song-artwork {
+    width: 220px;
+    height: 220px;
+    margin-bottom: 30px;
+} */
+.song-artwork {
+    width: 160px;
+    /* Kích thước đĩa than vừa vặn ở giữa */
+    height: 160px;
+    margin-bottom: 20px;
+}
+
+/* Đĩa than mô phỏng (trong trường hợp chưa load được ảnh) */
+.vinyl-disc {
+    width: 100%;
+    height: 100%;
+    background-color: #1a1a1a;
+    border-radius: 50%;
+    border: 4px solid #282828;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    /* Bỏ comment dòng dưới để đĩa tự động xoay */
+    /* animation: spin 4s linear infinite; */
+}
+
+.vinyl-center {
+    width: 45px;
+    height: 45px;
+    background-color: #1db954;
+    /* Màu xanh lá giống nút Chat/Play trong ảnh */
+    border-radius: 50%;
+    border: 4px solid #121212;
+}
+
+/* Thông tin Text */
+.song-info {
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.song-name {
+    color: #ffffff;
+    font-size: 24px;
+    /* Tăng cỡ chữ tên bài hát */
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    /* ... các thuộc tính cũ giữ nguyên ... */
+}
+
+.song-artist {
+    color: #b3b3b3;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* Nút thả tim */
+/* Khung chứa các nút căn ngang, canh giữa */
+.song-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    /* Khoảng cách giữa nút Play và nút Tim */
+    width: 100%;
+    margin-top: 10px;
+}
+
+.heart-btn {
+    background: transparent;
+    border: none;
+    color: #b3b3b3;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 10px;
+    display: flex;
+}
+
+.heart-btn:hover {
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+/* Class active được thêm bằng JS khi người dùng click để thêm vào yêu thích */
+.heart-btn.active {
+    color: #e60c8f;
+}
+
+.heart-btn.active .heart-icon {
+    fill: #e3096faf;
+    /* Tô kín ruột trái tim */
+}
+
+/* Hiệu ứng mượt mà */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* Style cho nút Play dạng chữ, bo tròn, màu xanh lá */
+.play-text-btn {
+    background-color: #1db954;
+    /* Màu xanh lá chủ đạo */
+    color: #000000;
+    /* Màu chữ đen cho nổi bật */
+    font-size: 14px;
+    font-weight: 700;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 20px;
+    /* Bo tròn góc dạng viên thuốc (pill) */
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.play-text-btn:hover {
+    background-color: #1ed760;
+    transform: scale(1.05);
+}
+
+.play-text-btn:active {
+    transform: scale(0.95);
+}

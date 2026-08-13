@@ -1,0 +1,46 @@
+<link rel="stylesheet" href="../SongDetailPage/songdetail.css">
+
+<div id="song-detail-modal" class="song-detail-overlay">
+    <div class="song-detail-content">
+        <!-- Nút tắt -->
+        <button id="close-detail-btn" class="close-btn" aria-label="Đóng">
+            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+
+        <!-- Hình ảnh bài hát (Artwork) -->
+        <div class="song-artwork">
+            <div class="vinyl-disc">
+                <div class="vinyl-center"></div>
+            </div>
+        </div>
+
+        <!-- Thông tin bài hát -->
+        <div class="song-info">
+            <h2 id="songName" class="song-name">Tên Bài Hát</h2>
+        </div>
+
+        <!-- Các nút hành động -->
+        <div class="song-actions">
+            <!-- Nút Play có chữ (nằm bên trái) -->
+            <button id="play-detail-btn" class="play-text-btn" aria-label="Phát bài hát" title="Phát bài hát">
+                Play
+            </button>
+
+            <!-- Nút yêu thích (Trái tim) -->
+            <button id="favorite-btn" class="heart-btn" aria-label="Thêm vào yêu thích"
+                title="Thêm vào danh sách yêu thích">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round" class="heart-icon">
+                    <path
+                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                    </path>
+                </svg>
+            </button>
+
+        </div>
+    </div>
+</div>
