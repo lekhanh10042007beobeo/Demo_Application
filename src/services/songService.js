@@ -1,5 +1,5 @@
 // const BASE_URL = "http://localhost:8080/songs/";
-const BASE_URL = "https://old-peas-report.loca.lt/songs/";
+const BASE_URL = "https://khaki-boxes-post.loca.lt/songs/";
 // const BASE_URL = "https://hidropoietic-unloyally-eleonor.ngrok-free.dev/songs/";
 
 export async function getAllSongs() {

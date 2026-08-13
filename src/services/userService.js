@@ -1,5 +1,5 @@
 // const BASE_URL = "http://localhost:8080/users";
-const BASE_URL = "https://old-peas-report.loca.lt/users";
+const BASE_URL = "https://khaki-boxes-post.loca.lt/users";
 // const BASE_URL = "https://hidropoietic-unloyally-eleonor.ngrok-free.dev/users";
 
 class User {
