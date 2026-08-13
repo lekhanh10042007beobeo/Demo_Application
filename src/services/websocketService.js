@@ -2,8 +2,8 @@ import { openChatModal } from "../pages/ChatPage/chat.js";
 
 
 // const BASE_URL = "ws://localhost:8080/chat?username=";
-// const BASE_URL = "wss://famous-tigers-carry.loca.lt/chat?username=";
-const BASE_URL = "wss://hidropoietic-unloyally-eleonor.ngrok-free.dev/chat?username=";
+const BASE_URL = "wss://old-peas-report.loca.lt/chat?username=";
+// const BASE_URL = "wss://hidropoietic-unloyally-eleonor.ngrok-free.dev/chat?username=";
 
 class WebSocketService {
 
