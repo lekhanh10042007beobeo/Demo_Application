@@ -1,6 +1,6 @@
 // const BASE_URL = "http://localhost:8080";
-const BASE_URL = "https://famous-tigers-carry.loca.lt";
-
+// const BASE_URL = "https://famous-tigers-carry.loca.lt";
+const BASE_URL = "https://hidropoietic-unloyally-eleonor.ngrok-free.dev";
 
 export class ChatMessage {
     constructor(senderUsername, receiverUsername) {
