@@ -1,9 +1,12 @@
 // const BASE_URL = "http://localhost:8080/songs/";
-const BASE_URL = "https://khaki-boxes-post.loca.lt/songs/";
+// const BASE_URL = "https://khaki-boxes-post.loca.lt/songs/";
 // const BASE_URL = "https://hidropoietic-unloyally-eleonor.ngrok-free.dev/songs/";
+import { BASE_URL } from "../components/apicomponents.js";
+
+const BASE_SONG_URL = BASE_URL + "/songs/";
 
 export async function getAllSongs() {
-    const reponseData = await fetch(BASE_URL + "getallsongs");
+    const reponseData = await fetch(BASE_SONG_URL + "getallsongs");
 
     if (!reponseData.ok) {
         throw new Error("Cannot get songList");
@@ -15,7 +18,7 @@ export async function getAllSongs() {
 
 export function playSong(songAudio, song, nowPlayingTitle) {
 
-    songAudio.src = BASE_URL + song.songSignature;
+    songAudio.src = BASE_SONG_URL + song.songSignature;
 
     nowPlayingTitle.textContent = song.songName;
 
@@ -25,7 +28,7 @@ export function playSong(songAudio, song, nowPlayingTitle) {
 
 export async function findSingleSongBySongName(songName) {
 
-    const songResponse = await fetch(BASE_URL + "findsong/" + songName);
+    const songResponse = await fetch(BASE_SONG_URL + "findsong/" + songName);
 
     return await songResponse.json();
 

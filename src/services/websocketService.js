@@ -2,7 +2,7 @@ import { openChatModal } from "../pages/ChatPage/chat.js";
 
 
 // const BASE_URL = "ws://localhost:8080/chat?username=";
-const BASE_URL = "wss://khaki-boxes-post.loca.lt/chat?username=";
+const BASE_URL = "wss://ooo-conference-hotels-husband.trycloudflare.com/chat?username=";
 // const BASE_URL = "wss://hidropoietic-unloyally-eleonor.ngrok-free.dev/chat?username=";
 
 class WebSocketService {

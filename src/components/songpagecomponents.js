@@ -30,5 +30,4 @@ export const dom = {
     chatBoxContainer: document.getElementById("activeChatBox")
 
 
-
 }

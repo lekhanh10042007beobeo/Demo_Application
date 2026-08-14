@@ -1,8 +1,8 @@
 // const BASE_URL = "http://localhost:8080/auth/friends";
-const BASE_URL = "https://khaki-boxes-post.loca.lt/auth/friends";
+// const BASE_URL = "https://khaki-boxes-post.loca.lt/auth/friends";
 // const BASE_URL = "https://hidropoietic-unloyally-eleonor.ngrok-free.dev/friends";
-
-
+import { BASE_URL } from "../components/apicomponents.js";
+const BASE_FRIEND_URL = BASE_URL + "/auth/friends";
 
 
 class FriendShipRequest {
@@ -19,7 +19,7 @@ class FriendShipRequest {
 
 async function postFriendShipData(friendShipRequest, path) {
 
-    const responseData = await fetch(BASE_URL + path, {
+    const responseData = await fetch(BASE_FRIEND_URL + path, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -44,7 +44,7 @@ export async function updateFriendStatus(friendShipRequest) {
 }
 
 export async function getFriendList(accessToken) {
-    const responseData = await fetch(BASE_URL, {
+    const responseData = await fetch(BASE_FRIEND_URL, {
         method: 'GET',
         headers: {
             'Authorization': 'Bearer ' + accessToken
