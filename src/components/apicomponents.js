@@ -1,1 +1,1 @@
-export const BASE_URL = "https://harbor-except-eds-prevention.trycloudflare.com";
+export const BASE_URL = "https://localhost:8080";
