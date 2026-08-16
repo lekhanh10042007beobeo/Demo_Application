@@ -52,6 +52,12 @@ async function setInitData() {
 
     });
 
+    dom.closeRegisterPopupButton.addEventListener('click', () => {
+        dom.registerFormContainer.style.display = "none";
+    });
+
+
+
     //
     dom.logoutButton.addEventListener('click', () => {
 

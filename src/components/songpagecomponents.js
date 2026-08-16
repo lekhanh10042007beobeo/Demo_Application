@@ -33,6 +33,8 @@ export const dom = {
     successPopup: document.getElementById('success-popup'),
     closeSuccessPopupButton: document.getElementById('close-popup-btn'),
 
+    closeRegisterPopupButton: document.getElementById('close-register-btn'),
+
     //
 
     userChatList: document.getElementById('userChatList'),

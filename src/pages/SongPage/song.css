@@ -457,6 +457,29 @@ body {
     z-index: 1000;
 }
 
+#close-register-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    color: #b3b3b3;
+    cursor: pointer;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+#close-register-btn:hover {
+    color: white;
+    /* Đổi màu trắng khi di chuột vào */
+}
+
+/* Đảm bảo form có position relative để nút X không chạy lung tung */
+#register-form {
+    position: relative;
+    /* Cần thuộc tính này để định vị nút X */
+    /* ... các style cũ của bạn vẫn giữ nguyên ... */
+}
+
 /* Thêm class này bằng JavaScript để hiển thị form */
 #register-form-container.active {
     display: flex;
