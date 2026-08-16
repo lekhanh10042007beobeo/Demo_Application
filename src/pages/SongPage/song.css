@@ -441,6 +441,141 @@ body {
     /* Sáng lên khi rê chuột vào nút */
 }
 
+/* Style for register form */
+/* Form Registration Styling */
+#register-form-container {
+    display: none;
+    /* Mặc định ẩn form */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Thêm class này bằng JavaScript để hiển thị form */
+#register-form-container.active {
+    display: flex;
+}
+
+#register-form {
+    background-color: #181818;
+    padding: 30px;
+    border-radius: 12px;
+    width: 350px;
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    font-family: Arial, sans-serif;
+}
+
+#register-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#register-form input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    background-color: #282828;
+    border: 1px solid #333;
+    border-radius: 4px;
+    color: white;
+    box-sizing: border-box;
+    outline: none;
+}
+
+#register-form input:focus {
+    border-color: #1DB954;
+}
+
+#register-form button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    background-color: #1DB954;
+    /* Màu xanh đặc trưng */
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#register-form button:hover {
+    background-color: #1ed760;
+}
+
+/* Style cho dòng báo lỗi */
+#error-message {
+    display: none;
+    /* Mặc định ẩn */
+    color: #ff4d4d;
+    /* Màu đỏ cảnh báo */
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+    background-color: rgba(255, 77, 77, 0.1);
+    padding: 8px;
+    border-radius: 4px;
+}
+
+/* Popup Overlay - Bao phủ toàn màn hình */
+.popup-overlay {
+    display: none;
+    /* Mặc định ẩn */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    /* Nền đen mờ */
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    /* Nằm trên form đăng ký */
+}
+
+/* Nội dung bên trong Popup */
+.popup-content {
+    background-color: #181818;
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    color: white;
+    border: 1px solid #1DB954;
+    /* Viền xanh đặc trưng */
+    width: 300px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    font-family: Arial, sans-serif;
+}
+
+.popup-content h2 {
+    color: #1DB954;
+    margin-top: 0;
+}
+
+.popup-content button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #1DB954;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.popup-content button:hover {
+    background-color: #1ed760;
+}
+
 /* Style for login form */
 
 /* 1. Nền mờ và căn giữa modal */

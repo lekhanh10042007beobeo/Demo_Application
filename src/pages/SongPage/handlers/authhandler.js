@@ -2,6 +2,7 @@ import { dom } from "../../../components/songpagecomponents.js";
 import { loadUserChatList } from "./userhandler.js";
 import { login } from "../../../services/userService.js";
 import { setInfoAfterLogin } from "./userhandler.js";
+import { register } from "../../../services/userService.js";
 
 export async function handleLogin(username, password) {
 
@@ -33,8 +34,42 @@ export async function handleLogin(username, password) {
 
 }
 
-export async function handleRegister() {
+export async function handleRegister(ownername, username, password) {
 
+    if (ownername !== "" && username !== "" && password !== "") {
+        const userInfo = {
+
+            ownername: ownername,
+            username: username,
+            password: password
+
+        }
+
+        const responsData = await register(userInfo);
+
+        if (responsData.ok) {
+
+            dom.registerFormContainer.style.display = "none";
+
+            dom.successPopup.style.display = "flex";
+
+            dom.closeSuccessPopupButton.onclick = () => {
+                dom.successPopup.style.display = "none";
+            }
+
+        }
+
+        else {
+            const error = await responsData.json();
+
+            dom.registerErrorMessage.textContent = "";
+
+            dom.registerErrorMessage.textContent = error.message;
+            console.log(error);
+            dom.registerErrorMessage.style.display = "flex";
+
+        }
+    }
 
 }
 

@@ -21,6 +21,20 @@ export const dom = {
     passwordInput: document.getElementById('password'),
     displayUsername: document.getElementById('displayUsername'),
 
+    //Register:
+    registerFormContainer: document.getElementById('register-form-container'),
+    ownernameRegisterInput: document.getElementById('ownernameRegisterInput'),
+    usernameRegisterInput: document.getElementById('usernameRegisterInput'),
+    passwordRegisterInput: document.getElementById('passwordRegisterInput'),
+
+    registerButton: document.getElementById('registerButton'),
+    registerErrorMessage: document.getElementById('error-message'),
+
+    successPopup: document.getElementById('success-popup'),
+    closeSuccessPopupButton: document.getElementById('close-popup-btn'),
+
+    //
+
     userChatList: document.getElementById('userChatList'),
 
     songDetailContainer: document.getElementById('songDetailContainer'),

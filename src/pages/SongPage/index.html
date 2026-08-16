@@ -110,6 +110,31 @@
         </div>
     </div>
 
+    <!--Mopdal đăng ký-->
+    <div id="register-form-container">
+        <form id="register-form">
+            <h2>Đăng ký</h2>
+            <input type="text" placeholder="Tên người dùng" required id="ownernameRegisterInput">
+            <input type="text" placeholder="Tên đăng nhập" required id="usernameRegisterInput">
+            <input type="password" placeholder="Mật khẩu" required id="passwordRegisterInput">
+
+            <div id="error-message"></div>
+
+            <button type="submit" id="registerButton">Xác nhận đăng ký</button>
+        </form>
+    </div>
+
+    <!-- Popup thông báo thành công -->
+    <div id="success-popup" class="popup-overlay">
+        <div class="popup-content">
+            <h2>Đăng ký thành công!</h2>
+            <p>Chào mừng bạn gia nhập hệ thống.</p>
+            <button id="close-popup-btn">Đóng</button>
+        </div>
+    </div>
+
+
+
     <!-- KHUNG CHAT CHI TIẾT (Hiện lên khi chọn 1 user) -->
     <div id="activeChatBox" class="active-chat-box" style="display: none;">
 

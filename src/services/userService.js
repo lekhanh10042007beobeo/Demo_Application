@@ -48,6 +48,25 @@ export async function login(username, password) {
     }
 
 }
+export async function register(userInfo) {
+
+    if (userInfo.ownername !== "" && userInfo.username !== "" && userInfo.password !== "") {
+
+        const responseData = await fetch(BASE_USER_URL + "/register", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(userInfo)
+
+        });
+
+        return responseData;
+
+    }
+
+}
+
 
 export async function findallusers(userId) {
 

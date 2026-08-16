@@ -1,5 +1,5 @@
 import { dom } from "../../components/songpagecomponents.js";
-import { handleLogin } from "./handlers/authhandler.js";
+import { handleLogin, handleRegister } from "./handlers/authhandler.js";
 import { checkLoginStatus } from "./handlers/authhandler.js";
 import { findSong } from "./handlers/songhandler.js";
 import { loadSongList } from "./handlers/songhandler.js";
@@ -20,6 +20,7 @@ async function setInitData() {
         }
     })
 
+    //Login
     dom.showLoginButton.addEventListener('click', () => {
         dom.loginModal.style.display = 'flex';
     });
@@ -36,7 +37,22 @@ async function setInitData() {
         await handleLogin(dom.usernameInput.value, dom.passwordInput.value);
 
     });
+    //Register
+    dom.showRegisterButton.addEventListener('click', (event) => {
 
+        dom.registerFormContainer.style.display = 'flex';
+
+    });
+
+    dom.registerButton.addEventListener('click', async (event) => {
+
+        event.preventDefault();
+
+        await handleRegister(dom.ownernameRegisterInput.value, dom.usernameRegisterInput.value, dom.passwordRegisterInput.value);
+
+    });
+
+    //
     dom.logoutButton.addEventListener('click', () => {
 
         localStorage.clear();
