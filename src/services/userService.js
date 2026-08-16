@@ -1,7 +1,7 @@
 // const BASE_URL = "http://localhost:8080/users";
 // const BASE_URL = "https://khaki-boxes-post.loca.lt/users";
 // const BASE_URL = "https://hidropoietic-unloyally-eleonor.ngrok-free.dev/users";
-import { BASE_URL } from "../components/apicomponents.js";
+import { BASE_URL } from "../components/commoncomponents.js";
 
 const BASE_USER_URL = BASE_URL + "/users";
 
@@ -17,6 +17,20 @@ class UserFavoriteSongRequest {
         this.songId = songId;
     }
 }
+export class UserInfo {
+
+    constructor(userId, username, ownername) {
+        this.userId = userId;
+        this.username = username;
+        this.ownername = ownername;
+    }
+
+    setFriendRequestStatus(friendRequestStatus) {
+        this.friendRequestStatus = friendRequestStatus;
+    }
+
+}
+
 
 export async function login(username, password) {
 

@@ -1,14 +1,14 @@
 // const BASE_URL = "http://localhost:8080";
 // const BASE_URL = "https://khaki-boxes-post.loca.lt";
 // const BASE_URL = "https://hidropoietic-unloyally-eleonor.ngrok-free.dev";
-import { BASE_URL } from "../components/apicomponents.js";
+import { BASE_URL } from "../components/commoncomponents.js";
 
 
 export class ChatMessage {
     constructor(senderUsername, receiverUsername) {
         this.senderUsername = senderUsername;
         this.receiverUsername = receiverUsername;
-    }s
+    } s
 
     setContent(content) {
         this.content = content;

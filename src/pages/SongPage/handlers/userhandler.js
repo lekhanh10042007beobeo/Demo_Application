@@ -6,6 +6,7 @@ import { websocketService } from "../../../services/websocketService.js";
 import { setFavoriteSongListToLocalStorage } from "./songhandler.js";
 import { userInfoHandler } from "../../UserInfoPage/userinfo.js";
 import { getFriendList } from "../../../services/friendService.js";
+import { userInfoMap } from "../../../components/commoncomponents.js";
 
 export async function loadUserChatList() {
 
@@ -30,38 +31,27 @@ export async function loadUserChatList() {
 
 
         if (userList && userList.length !== 0) {
-            const userNameMap = new Map();
 
             for (const userInfo of userList) {
 
                 if (userInfo.username !== localStorage.getItem('userName')) {
 
-
-                    //setup userMap:
-                    userNameMap.set(userInfo.username, userInfo.ownername);
+                    userInfoMap.set(userInfo.userId, userInfo);
 
                     //Create html components:
                     const li = document.createElement('li');
                     const span = document.createElement('span');
-                    // const chatButton = document.createElement('button');
 
                     span.textContent = userInfo.ownername;
 
-                    // chatButton.textContent = "Chat";
-                    // chatButton.addEventListener('click', async () => openChatModal(userInfo));
-
-
                     li.appendChild(span);
-                    li.addEventListener('click', async () => await userInfoHandler.openUserInfoModal(userInfo));
-                    // li.appendChild(chatButton);
+                    li.addEventListener('click', async () => await userInfoHandler.openUserInfoModal(userInfoMap.get(userInfo.userId)));
 
                     dom.userChatList.appendChild(li);
 
                 }
             }
 
-            //set usernameMap to localStorage:
-            localStorage.setItem('usernameMap', JSON.stringify(Array.from(userNameMap)));
 
 
         }
