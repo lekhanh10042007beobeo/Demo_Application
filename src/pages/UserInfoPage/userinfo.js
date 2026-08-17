@@ -42,7 +42,7 @@ class UserInfoHandler {
             await openChatModal(userInfo);
         });
 
-        userInfoRenderUI.renderFriendRequestStatusButton(document.getElementById("friendStatus-btn"), userInfo);
+        userInfoRenderUI.renderFriendRequestStatusButton(document.getElementById("friendStatus-btn"), userInfo);    
 
     }
 
