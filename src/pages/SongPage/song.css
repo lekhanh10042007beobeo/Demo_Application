@@ -868,3 +868,106 @@ body {
     box-sizing: border-box;
     z-index: 9999 !important;
 }
+
+/* Style cho popup thông báo lỗi */
+
+/* Mặc định ẩn popup đi, khi dùng thì chuyển thành display: flex */
+.session-expired-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    display: none;
+    /* Mặc định ẩn */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: fadeInOverlay 0.25s ease-in-out;
+}
+
+/* Card đồng bộ với khung đăng ký của web bạn */
+.session-expired-card {
+    background: #181818;
+    /* Màu nền trùng với card đăng ký */
+    color: #ffffff;
+    padding: 35px 30px;
+    border-radius: 16px;
+    /* Bo góc mềm mại giống ảnh mẫu */
+    text-align: center;
+    max-width: 380px;
+    width: 90%;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    animation: scaleUpCard 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.session-expired-icon {
+    font-size: 38px;
+    margin-bottom: 12px;
+}
+
+.session-expired-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.session-expired-card p {
+    margin: 0 0 24px 0;
+    font-size: 14px;
+    color: #b3b3b3;
+    /* Màu chữ xám nhạt phong cách Spotify */
+    line-height: 1.5;
+}
+
+/* Nút OK màu xanh lá chuẩn phong cách nút "Xác nhận đăng ký" */
+.session-expired-btn {
+    background-color: #1ed760;
+    /* Xanh lá đặc trưng */
+    color: #000000;
+    /* Chữ đen trên nền xanh lá cho nổi bật và chuẩn vibe */
+    border: none;
+    padding: 12px 20px;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 500px;
+    /* Bo tròn kiểu viên thuốc giống nút web bạn */
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    width: 100%;
+}
+
+.session-expired-btn:hover {
+    background-color: #1fdf64;
+    transform: scale(1.02);
+}
+
+.session-expired-btn:active {
+    transform: scale(0.98);
+}
+
+@keyframes fadeInOverlay {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleUpCard {
+    from {
+        transform: scale(0.85);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

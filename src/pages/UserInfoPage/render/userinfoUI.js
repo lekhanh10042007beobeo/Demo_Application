@@ -3,6 +3,7 @@ import { FriendShipRequest } from "../../../services/friendService.js";
 import { updateFriendStatus } from "../../../services/friendService.js";
 import { userInfoMap } from "../../../components/commoncomponents.js";
 import { UserInfo } from "../../../services/userService.js";
+import { dom } from "../../../components/songpagecomponents.js";
 
 class UserInfoRender {
 
@@ -25,13 +26,28 @@ class UserInfoRender {
                 friendStatusButton.onclick = async () => {
 
                     const friendshipRequest = new FriendShipRequest(localStorage.getItem('userId'), userInfo.userId);
-                    await sendFriendRequest(friendshipRequest);
+                    const responseData = await sendFriendRequest(friendshipRequest);
 
-                    const newUserInfo = new UserInfo(userInfo.userId, userInfo.username, userInfo.ownername);
-                    newUserInfo.setFriendRequestStatus("SENT");
-                    userInfoMap.set(userInfo.userId, newUserInfo);
+                    if (responseData.ok) {
+                        const newUserInfo = new UserInfo(userInfo.userId, userInfo.username, userInfo.ownername);
+                        newUserInfo.setFriendRequestStatus("SENT");
+                        userInfoMap.set(userInfo.userId, newUserInfo);
 
-                    updateFriendStatusUI("SENT");
+                        updateFriendStatusUI("SENT");
+                    }
+
+                    else {
+                        dom.userInfoContainer.style.display = "none";
+
+                        dom.errorContainer.style.display = "flex";
+
+                    }
+
+                    // const newUserInfo = new UserInfo(userInfo.userId, userInfo.username, userInfo.ownername);
+                    // newUserInfo.setFriendRequestStatus("SENT");
+                    // userInfoMap.set(userInfo.userId, newUserInfo);
+
+                    // updateFriendStatusUI("SENT");
                 };
 
             }
@@ -49,9 +65,18 @@ class UserInfoRender {
                     newUserInfo.setFriendRequestStatus("NONE");
                     userInfoMap.set(userInfo.userId, newUserInfo);
 
-                    await updateFriendStatus(friendshipRequest);
+                    const responseData = await updateFriendStatus(friendshipRequest);
 
-                    updateFriendStatusUI("NONE");
+                    if (responseData.ok) {
+                        updateFriendStatusUI("NONE");
+
+                    }
+                    else {
+                        dom.userInfoContainer.style.display = "none";
+
+                        dom.errorContainer.style.display = "flex";
+                    }
+                    // updateFriendStatusUI("NONE");
                 };
 
             }
@@ -73,12 +98,24 @@ class UserInfoRender {
                     newUserInfo.setFriendRequestStatus("ACCEPTED");
                     userInfoMap.set(userInfo.userId, newUserInfo);
 
-                    await updateFriendStatus(friendshipRequest);
+                    const reponseData = await updateFriendStatus(friendshipRequest);
 
+                    if (reponseData.ok) {
 
-                    updateFriendStatusUI("ACCEPTED");
+                        updateFriendStatusUI("ACCEPTED");
 
-                    document.getElementById('popup-menu').style.display = "none";
+                        document.getElementById('popup-menu').style.display = "none";
+                    }
+
+                    else {
+                        dom.userInfoContainer.style.display = "none";
+
+                        dom.errorContainer.style.display = "flex";
+                    }
+
+                    // updateFriendStatusUI("ACCEPTED");
+
+                    // document.getElementById('popup-menu').style.display = "none";
 
 
 
@@ -91,11 +128,23 @@ class UserInfoRender {
                     newUserInfo.setFriendRequestStatus("REJECTED");
                     userInfoMap.set(userInfo.userId, newUserInfo);
 
-                    await updateFriendStatus(friendshipRequest);
+                    const reponseData = await updateFriendStatus(friendshipRequest);
 
-                    updateFriendStatusUI("NONE");
+                    if (reponseData.ok) {
+                        updateFriendStatusUI("NONE");
 
-                    document.getElementById('popup-menu').style.display = "none";
+                        document.getElementById('popup-menu').style.display = "none";
+                    }
+
+                    else {
+                        dom.userInfoContainer.style.display = "none";
+
+                        dom.errorContainer.style.display = "flex";
+                    }
+
+                    // updateFriendStatusUI("NONE");
+
+                    // document.getElementById('popup-menu').style.display = "none";
 
                 }
 
@@ -115,9 +164,18 @@ class UserInfoRender {
                     newUserInfo.setFriendRequestStatus("NONE");
                     userInfoMap.set(userInfo.userId, newUserInfo);
 
-                    await updateFriendStatus(friendshipRequest);
+                    const responsData = await updateFriendStatus(friendshipRequest);
 
-                    updateFriendStatusUI("NONE");
+                    if (responsData.ok) {
+                        updateFriendStatus("NONE");
+                    }
+                    else {
+                        dom.userInfoContainer.style.display = "none";
+
+                        dom.errorContainer.style.display = "flex";
+                    }
+
+                    // updateFriendStatusUI("NONE");
                 };
 
             }
@@ -130,5 +188,7 @@ class UserInfoRender {
 
 
 }
+
+
 
 export const userInfoRenderUI = new UserInfoRender();

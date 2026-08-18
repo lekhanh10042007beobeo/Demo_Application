@@ -43,7 +43,13 @@ export const dom = {
 
     userInfoContainer: document.getElementById('userInfoContainer'),
 
-    chatBoxContainer: document.getElementById("activeChatBox")
+    chatBoxContainer: document.getElementById("activeChatBox"),
+
+    //Error popup
+    errorContainer: document.getElementById('sessionExpiredModal'),
+    closeErrorContainerButton: document.getElementById('sessionOkBtn')
+
 
 
 }
+

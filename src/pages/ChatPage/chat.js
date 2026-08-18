@@ -3,6 +3,7 @@
 import { display_conversation } from "../../services/chatService.js";
 import { ChatMessage } from "../../services/chatService.js";
 import { websocketService } from "../../services/websocketService.js";
+import { dom } from "../../components/songpagecomponents.js";
 
 const container = document.getElementById('activeChatBox');
 
@@ -110,12 +111,9 @@ async function show_message_with_single(username, receiverUsername, chatMessages
 
         //Later I'm gonna log out the user when the accessToken is invalid!!
         else {
-            console.warn("Your login session was due");
+            dom.chatBoxContainer.style.display = "none";
 
-            localStorage.clear();
-
-            location.reload();
-
+            dom.errorContainer.style.display = "flex";
         }
     }
 

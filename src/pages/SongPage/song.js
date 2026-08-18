@@ -72,7 +72,17 @@ async function setInitData() {
 
     dom.homePage.addEventListener('click', () => {
         location.reload();
-    })
+    });
+
+    dom.closeErrorContainerButton.addEventListener('click', () => {
+
+        dom.errorContainer.style.display = "none";
+
+        localStorage.clear();
+
+        location.reload();
+
+    });
 
 
     //When the website has just been loaded for the first time:

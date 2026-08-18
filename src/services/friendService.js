@@ -21,18 +21,25 @@ export class FriendShipRequest {
 
 async function postFriendShipData(friendShipRequest, path) {
 
-    const responseData = await fetch(BASE_FRIEND_URL + path, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
+    try {
+        const responseData = await fetch(BASE_FRIEND_URL + path, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
 
-        },
-        body: JSON.stringify(friendShipRequest)
+            },
+            body: JSON.stringify(friendShipRequest)
 
-    });
+        });
 
-    return responseData;
+        return responseData;
+    }
+    catch (error) {
+        return {
+            status: 401
+        };
+    }
 
 }
 

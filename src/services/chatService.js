@@ -8,7 +8,7 @@ export class ChatMessage {
     constructor(senderUsername, receiverUsername) {
         this.senderUsername = senderUsername;
         this.receiverUsername = receiverUsername;
-    } s
+    }
 
     setContent(content) {
         this.content = content;
@@ -33,18 +33,35 @@ export class ChatMessageResponse {
 
 export async function display_conversation(chatMessage, accessToken) {
 
-    const responseData = await fetch(BASE_URL + "/auth/chatmessage/display_conversation", {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + accessToken
+    // const responseData = await fetch(BASE_URL + "/auth/chatmessage/display_conversation", {
+    //     method: 'POST',
+    //     headers: {
+    //         'Content-Type': 'application/json',
+    //         'Authorization': 'Bearer ' + accessToken
 
-        },
-        body: JSON.stringify(chatMessage)
+    //     },
+    //     body: JSON.stringify(chatMessage)
 
-    });
+    // });
 
-    return responseData;
+    // return responseData;
+
+    try {
+        const responseData = await fetch(BASE_URL + "/auth/chatmessage/display_conversation", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + accessToken
+            },
+            body: JSON.stringify(chatMessage)
+        });
+
+        return responseData;
+    } catch (error) {
+        return {
+            status: 401
+        };
+    }
 
 }
 

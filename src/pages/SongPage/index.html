@@ -129,9 +129,20 @@
     <!-- Popup thông báo thành công -->
     <div id="success-popup" class="popup-overlay">
         <div class="popup-content">
-            <h2>Đăng ký thành công!</h2>
-            <p>Chào mừng bạn gia nhập hệ thống.</p>
+            <h2 id="successMessage">Đăng ký thành công!</h2>
+            <p id="flexMessage">Chào mừng bạn gia nhập hệ thống.</p>
             <button id="close-popup-btn">Đóng</button>
+        </div>
+    </div>
+
+
+    <!--Popup thông báo lỗi-->
+    <div id="sessionExpiredModal" class="session-expired-overlay">
+        <div class="session-expired-card">
+            <div class="session-expired-icon">⚠️</div>
+            <h3>Phiên đăng nhập hết hạn</h3>
+            <p>Phiên làm việc của bạn đã hết hạn. Vui lòng đăng nhập lại.</p>
+            <button id="sessionOkBtn" class="session-expired-btn">OK</button>
         </div>
     </div>
 
