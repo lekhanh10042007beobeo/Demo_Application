@@ -75,13 +75,11 @@ async function setInitData() {
     });
 
     dom.closeErrorContainerButton.addEventListener('click', () => {
-
-        dom.errorContainer.style.display = "none";
-
         localStorage.clear();
 
         location.reload();
 
+        dom.errorContainer.style.display = "none";
     });
 
 
