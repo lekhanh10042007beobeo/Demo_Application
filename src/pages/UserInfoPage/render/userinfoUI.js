@@ -37,9 +37,26 @@ class UserInfoRender {
                     }
 
                     else {
+                        const error = await responseData.json();
+
+                        console.log(error);
+
                         dom.userInfoContainer.style.display = "none";
 
-                        dom.errorContainer.style.display = "flex";
+
+                        if (!error.message) {
+
+                            dom.errorContainer.style.display = "flex";
+                        }
+
+                        else {
+                            dom.globalErrorMessage.textContent = error.message;
+
+                            dom.globalErrorContainer.style.display = "flex";
+
+
+                        }
+
 
                     }
 
@@ -167,12 +184,14 @@ class UserInfoRender {
                     const responsData = await updateFriendStatus(friendshipRequest);
 
                     if (responsData.ok) {
-                        updateFriendStatus("NONE");
+                        updateFriendStatusUI("NONE");
                     }
                     else {
                         dom.userInfoContainer.style.display = "none";
 
                         dom.errorContainer.style.display = "flex";
+
+
                     }
 
                     // updateFriendStatusUI("NONE");

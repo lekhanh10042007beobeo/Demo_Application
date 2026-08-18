@@ -82,6 +82,12 @@ async function setInitData() {
         dom.errorContainer.style.display = "none";
     });
 
+    dom.closeGlobalErrorContainerButton.addEventListener('click', () => {
+
+        location.reload();
+
+    });
+
 
     //When the website has just been loaded for the first time:
     document.addEventListener('DOMContentLoaded', async () => {

@@ -37,7 +37,8 @@ async function postFriendShipData(friendShipRequest, path) {
     }
     catch (error) {
         return {
-            status: 401
+            status: 401,
+            async json() { return {}; }
         };
     }
 

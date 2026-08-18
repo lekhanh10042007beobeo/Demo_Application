@@ -47,7 +47,14 @@ export const dom = {
 
     //Error popup
     errorContainer: document.getElementById('sessionExpiredModal'),
-    closeErrorContainerButton: document.getElementById('sessionOkBtn')
+    closeErrorContainerButton: document.getElementById('sessionOkBtn'),
+
+
+    //Glocal error popup:
+    globalErrorContainer: document.getElementById("globalErrorContainer"),
+    closeGlobalErrorContainerButton: document.getElementById("closeGlobalErrorContainerButton"),
+    globalErrorMessage: document.getElementById("globalErrorMessage")
+
 
 
 
