@@ -130,9 +130,6 @@ class UserInfoRender {
                         dom.errorContainer.style.display = "flex";
                     }
 
-                    // updateFriendStatusUI("ACCEPTED");
-
-                    // document.getElementById('popup-menu').style.display = "none";
 
 
 
