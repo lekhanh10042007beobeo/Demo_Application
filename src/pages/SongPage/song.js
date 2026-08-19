@@ -104,6 +104,13 @@ async function setInitData() {
 
     });
 
+    //Loop the song:
+    dom.repeatSongButton.addEventListener('change', () => {
+
+        dom.mySong.loop = dom.repeatSongButton.checked;
+
+    });
+
 }
 
 

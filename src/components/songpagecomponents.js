@@ -9,6 +9,8 @@ export const dom = {
     userFavoriteSongs: document.getElementById('navLibrary'),
     homePage: document.getElementById('navHome'),
     songListType: document.getElementById('songListType'),
+    repeatSongButton: document.getElementById('repeatCheckbox'),
+    repeatSongControlContainer: document.getElementById('repeatSongControlContainer'),
 
     showLoginButton: document.getElementById('showLoginModalBtn'),
     showRegisterButton: document.getElementById('showRegisterModalBtn'),

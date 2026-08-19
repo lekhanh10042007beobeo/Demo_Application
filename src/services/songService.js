@@ -2,6 +2,7 @@
 // const BASE_URL = "https://khaki-boxes-post.loca.lt/songs/";
 // const BASE_URL = "https://hidropoietic-unloyally-eleonor.ngrok-free.dev/songs/";
 import { BASE_URL } from "../components/commoncomponents.js";
+import { dom } from "../components/songpagecomponents.js";
 
 const BASE_SONG_URL = BASE_URL + "/songs/";
 
@@ -22,7 +23,8 @@ export function playSong(songAudio, song, nowPlayingTitle) {
 
     nowPlayingTitle.textContent = song.songName;
 
-    songAudio.loop = true;
+    dom.repeatSongButton.checked = false;
+    dom.repeatSongControlContainer.style.display = "flex";
     songAudio.play();
 }
 

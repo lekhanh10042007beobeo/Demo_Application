@@ -85,14 +85,27 @@
         <div class="now-playing-info">
             <h4 id="nowPlayingTitle">Chưa có bài hát nào được chọn</h4>
         </div>
+
         <div class="player-controls">
             <audio id="mySong" controls></audio>
+
+            <!-- Thêm checkbox và nhãn "Lặp lại bài hát" -->
+            <div class="repeat-control" id="repeatSongControlContainer">
+                <label for="repeatCheckbox" class="repeat-label">
+                    <input type="checkbox" id="repeatCheckbox">
+                    <span>Lặp lại bài hát</span>
+                </label>
+            </div>
+
             <div class="control-buttons">
                 <!--<button id="playSong">Phát</button>
                 <button id="pauseSong">Tạm dừng</button>
                 <button id="replaySong">Phát lại từ đầu</button> -->
             </div>
+
         </div>
+
+
     </div>
 
 

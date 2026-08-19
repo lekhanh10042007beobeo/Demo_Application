@@ -971,3 +971,76 @@ body {
         opacity: 1;
     }
 }
+
+/* Players controll buttons */
+/* Tùy chỉnh khu vực chứa nút lặp lại */
+.player-controls {
+    display: flex;
+    flex-direction: row;
+    /* Sắp xếp các phần tử nằm ngang hàng (trái sang phải) */
+    align-items: center;
+    /* Căn giữa theo chiều dọc */
+    gap: 20px;
+    /* Khoảng cách giữa thẻ audio và nút lặp lại */
+    flex: 1;
+    max-width: 600px;
+    /* Tăng nhẹ chiều rộng tối đa để đủ chỗ chứa */
+    margin: 0 auto;
+}
+
+.repeat-control {
+    display: none;
+    align-items: center;
+}
+
+.repeat-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    /* Khoảng cách giữa ô tick và chữ */
+    color: #b3b3b3;
+    /* Màu chữ xám nhẹ giống Spotify */
+    font-size: 13px;
+    font-family: inherit;
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.2s ease;
+}
+
+.repeat-label:hover {
+    color: #ffffff;
+    /* Sáng lên khi rê chuột vào */
+}
+
+/* Tùy chỉnh ô checkbox cho gọn gàng */
+.repeat-label input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #727272;
+    border-radius: 4px;
+    background-color: #121212;
+    cursor: pointer;
+    display: grid;
+    place-content: center;
+    transition: all 0.2s ease;
+}
+
+/* Hiệu ứng khi được tick chọn */
+.repeat-label input[type="checkbox"]:checked {
+    background-color: #1ed760;
+    /* Màu xanh đặc trưng */
+    border-color: #1ed760;
+}
+
+/* Tạo dấu tích bên trong */
+.repeat-label input[type="checkbox"]:checked::before {
+    content: "";
+    width: 4px;
+    height: 8px;
+    border: solid #000;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    margin-bottom: 2px;
+}
