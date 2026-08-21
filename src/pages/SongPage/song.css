@@ -346,7 +346,7 @@ body {
 }
 
 /* ================= THANH TRÌNH PHÁT NHẠC (PLAYER) DƯỚI CÙNG ================= */
-.player-container {
+/* .player-container {
     position: fixed;
     bottom: 0;
     left: 0;
@@ -356,27 +356,67 @@ body {
     border-top: 1px solid #282828;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     padding: 0 30px;
     z-index: 8888;
-    /* Nằm dưới popup chat nhưng nổi lên trên nền app */
+    justify-content: flex-start;
+    gap: 210px;
+} */
+.player-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    background-color: #181818;
+    border-top: 1px solid #282828;
+    display: grid;
+    /* Chia thành 3 cột cố định: Cột trái (Tên bài), Cột giữa (Nút điều khiển), Cột phải (Lặp lại) */
+    grid-template-columns: 280px 1fr 200px;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 8888;
+    gap: 20px;
 }
 
+.now-playing-info {
+    width: 100%;
+    overflow: hidden;
+}
+
+/* .now-playing-info h4 {
+    flex-shrink: 0;
+    font-size: 14px;
+    font-weight: normal;
+    color: #fff;
+} */
 .now-playing-info h4 {
     font-size: 14px;
     font-weight: normal;
     color: #fff;
+    /* Cho phép xuống dòng khi tên bài hát quá dài */
+    white-space: normal;
+    word-break: break-word;
+    /* Hoặc nếu bạn chỉ muốn hiện tối đa 2 dòng rồi ẩn bớt:
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden; */
 }
 
 .player-controls {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: auto auto minmax(250px, 1fr) auto;
     align-items: center;
-    gap: 5px;
-    flex: 1;
-    /* Giúp cụm điều khiển chiếm không gian ở giữa */
-    max-width: 500px;
-    margin: 0 auto;
+    gap: 15px;
+
+    flex: 0 0 auto;
+    width: 600px;
+    max-width: 600px;
+    margin: 0;
+}
+
+.player-controls audio {
+    width: 260px;
 }
 
 .control-buttons {
@@ -974,24 +1014,22 @@ body {
 
 /* Players controll buttons */
 /* Tùy chỉnh khu vực chứa nút lặp lại */
-.player-controls {
+/* .player-controls {
     display: flex;
     flex-direction: row;
-    /* Sắp xếp các phần tử nằm ngang hàng (trái sang phải) */
     align-items: center;
-    /* Căn giữa theo chiều dọc */
     gap: 20px;
-    /* Khoảng cách giữa thẻ audio và nút lặp lại */
     flex: 1;
     max-width: 600px;
-    /* Tăng nhẹ chiều rộng tối đa để đủ chỗ chứa */
     margin: 0 auto;
-}
+} */
 
 .repeat-control {
     display: none;
     align-items: center;
+    margin-left: 10px;
 }
+
 
 .repeat-label {
     display: flex;
@@ -1005,6 +1043,8 @@ body {
     cursor: pointer;
     user-select: none;
     transition: color 0.2s ease;
+    white-space: nowrap;
+
 }
 
 .repeat-label:hover {
@@ -1043,4 +1083,106 @@ body {
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
     margin-bottom: 2px;
+}
+
+/* Cụm 4 nút: Back, Play, Next và Add */
+.main-player-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Style chung cho nút Back, Next */
+.nav-btn {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 30px;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.nav-btn:hover {
+    transform: scale(0.9);
+}
+
+/* Style cho nút "Thêm vào danh sách" (Tròn, dấu +) */
+.add-queue-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid #b3b3b3;
+    background-color: transparent;
+    color: #b3b3b3;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    margin-right: 10px;
+    position: relative;
+    top: 4px;
+
+    margin-left: 10px;
+    /* Tăng số này lên thì nó càng xê dịch sang phải */
+
+    /* Muốn dịch SANG TRÁI (đẩy nó xa nút bên phải ra) */
+    margin-right: 10px;
+    /* Tăng số này lên thì nó càng xê dịch sang trái */
+}
+
+.add-queue-btn:hover {
+    border-color: #fff;
+    color: #fff;
+}
+
+/* --- TRẠNG THÁI VÔ HIỆU HÓA (DISABLED) BẰNG JAVASCRIPT --- */
+.nav-btn:disabled,
+.nav-btn.disabled {
+    color: #535353 !important;
+    /* Xám đi (tắt sáng) */
+    opacity: 0.5;
+    /* Làm mờ */
+    cursor: not-allowed;
+    /* Đổi con trỏ chuột thành hình cấm bấm */
+    pointer-events: none;
+    /* Chặn hoàn toàn sự kiện click chuột */
+}
+
+/* Tùy chỉnh nút "Danh sách phát hiện tại" */
+#openCurrentSongList {
+    background-color: #1db954;
+    /* Màu xanh lá đặc trưng của web */
+    color: #030202;
+    /* Chữ màu trắng cho nổi bật */
+    border: none;
+    /* Bỏ viền mặc định */
+    padding: 8px 16px;
+    /* Khoảng cách bên trong nút cho thoáng */
+    border-radius: 20px;
+    /* Bo tròn hai đầu thành hình viên thuốc */
+    font-size: 13px;
+    /* Cỡ chữ vừa vặn */
+    font-weight: bold;
+    /* Chữ đậm */
+    cursor: pointer;
+    /* Đổi con trỏ chuột thành hình bàn tay */
+    transition: background-color 0.2s, transform 0.1s;
+    /* Hiệu ứng mượt mà */
+    white-space: nowrap;
+
+}
+
+/* Hiệu ứng khi rê chuột vào nút */
+#openCurrentSongList:hover {
+    background-color: #1ed760;
+    /* Sáng hơn một chút khi hover */
+    transform: scale(1.05);
+    /* Phóng to nhẹ sinh động */
+}
+
+/* Hiệu ứng khi bấm xuống */
+#openCurrentSongList:active {
+    transform: scale(0.95);
 }

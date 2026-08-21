@@ -111,6 +111,11 @@ async function setInitData() {
 
     });
 
+    // const nextBtn = document.getElementById('nextSongBtn');
+
+    // // Vô hiệu hóa nút (tự động tắt sáng và không bấm được)
+    // nextBtn.disabled = true;
+
 }
 
 

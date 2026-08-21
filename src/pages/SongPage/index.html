@@ -86,7 +86,22 @@
             <h4 id="nowPlayingTitle">Chưa có bài hát nào được chọn</h4>
         </div>
 
+
         <div class="player-controls">
+
+            <button id="openCurrentSongList"> Danh sách phát hiện tại</button>
+
+            <!-- Cụm nút điều khiển chính -->
+            <div class="main-player-buttons">
+
+                <button id="prevSongBtn" class="nav-btn" title="Play the previous song">⏮</button>
+
+                <button id="addToQueueBtn" class="add-queue-btn"
+                    title="Thêm bài nhạc vào danh sách phát hiện tại">+</button>
+
+                <button id="nextSongBtn" class="nav-btn" title="Play the next song">⏭</button>
+            </div>
+
             <audio id="mySong" controls></audio>
 
             <!-- Thêm checkbox và nhãn "Lặp lại bài hát" -->
