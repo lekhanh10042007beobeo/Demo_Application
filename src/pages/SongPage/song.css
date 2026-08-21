@@ -1111,9 +1111,11 @@ body {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    border: 1px solid #b3b3b3;
-    background-color: transparent;
-    color: #b3b3b3;
+
+    background-color: #1db954;
+    color: #030202;
+    border: none;
+
     font-size: 18px;
     cursor: pointer;
     display: flex;
@@ -1130,11 +1132,12 @@ body {
     /* Muốn dịch SANG TRÁI (đẩy nó xa nút bên phải ra) */
     margin-right: 10px;
     /* Tăng số này lên thì nó càng xê dịch sang trái */
+
+    transition: all 0.2s ease-in-out;
 }
 
 .add-queue-btn:hover {
-    border-color: #fff;
-    color: #fff;
+    transform: scale(0.9);
 }
 
 /* --- TRẠNG THÁI VÔ HIỆU HÓA (DISABLED) BẰNG JAVASCRIPT --- */
