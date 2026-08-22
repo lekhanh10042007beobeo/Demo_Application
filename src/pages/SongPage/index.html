@@ -202,6 +202,52 @@
 
     </div>
 
+    <!-- Popup Danh sách phát hiện tại -->
+    <div id="currentPlaylistPopup" class="playlist-popup-overlay">
+        <div class="playlist-popup-content">
+            <!-- Header của Popup -->
+            <div class="playlist-header">
+                <h3>Danh sách phát hiện tại</h3>
+                <button class="close-popup-btn" id="closePlaylistBtn">&times;</button>
+            </div>
+
+            <!-- Thanh tìm kiếm để thêm bài hát -->
+            <div class="playlist-search-box">
+                <input type="text" id="searchSongInput" placeholder="Tìm kiếm bài hát để thêm...">
+            </div>
+
+            <!-- Danh sách bài hát hiện tại (Dữ liệu giả) -->
+            <div class="playlist-songs-list" id="playlistSongsList">
+
+                <div class="songItem" id="currentSongListMessage" style="display: none;">
+                    <span class="song-title">Chưa có bài hát nào</span>
+                </div>
+
+                <!-- <div class="song-item">
+                    <span class="song-title">SSD</span>
+                    <button class="remove-song-btn" title="Xóa khỏi danh sách">&times;</button>
+                </div>
+                <div class="song-item">
+                    <span class="song-title">Chỉ muốn bên em lúc này</span>
+                    <button class="remove-song-btn" title="Xóa khỏi danh sách">&times;</button>
+                </div>
+                <div class="song-item">
+                    <span class="song-title">Như anh đã thấy em</span>
+                    <button class="remove-song-btn" title="Xóa khỏi danh sách">&times;</button>
+                </div>
+                <div class="song-item">
+                    <span class="song-title">Yêu thương ngày đó</span>
+                    <button class="remove-song-btn" title="Xóa khỏi danh sách">&times;</button>
+                </div>
+                <div class="song-item">
+                    <span class="song-title">Come my way</span>
+                    <button class="remove-song-btn" title="Xóa khỏi danh sách">&times;</button>
+                </div> -->
+            </div>
+
+        </div>
+    </div>
+
 
 
     <script type="module" src="./song.js"></script>

@@ -55,8 +55,13 @@ export const dom = {
     //Glocal error popup:
     globalErrorContainer: document.getElementById("globalErrorContainer"),
     closeGlobalErrorContainerButton: document.getElementById("closeGlobalErrorContainerButton"),
-    globalErrorMessage: document.getElementById("globalErrorMessage")
+    globalErrorMessage: document.getElementById("globalErrorMessage"),
 
+
+    //CurrentSongList components:
+    currentSongListContainer: document.getElementById("currentPlaylistPopup"),
+    openCurrentSongListButton: document.getElementById("openCurrentSongList"),
+    closeCurrentSongListBUtton: document.getElementById("closePlaylistBtn")
 
 
 

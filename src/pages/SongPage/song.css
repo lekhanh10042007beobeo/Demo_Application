@@ -1189,3 +1189,167 @@ body {
 #openCurrentSongList:active {
     transform: scale(0.95);
 }
+
+/* Danh sach bai hat hien tai */
+/* Lớp phủ mờ nền khi bật popup */
+.playlist-popup-overlay {
+    display: none;
+    position: fixed;
+    /* Neo vào góc trên bên trái */
+    top: 60px;
+    /* Khoảng cách từ mép trên (chỉnh tùy ý để tránh thanh navbar của bạn) */
+    left: 20px;
+    /* Khoảng cách từ mép trái */
+
+    /* Căn chỉnh nội dung */
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    /* Không làm mờ toàn màn hình */
+    z-index: 1000;
+    position: fixed;
+    /* Neo vào góc trên bên trái */
+    top: 60px;
+    /* Khoảng cách từ mép trên (chỉnh tùy ý để tránh thanh navbar của bạn) */
+    left: 20px;
+    /* Khoảng cách từ mép trái */
+
+    /* Căn chỉnh nội dung */
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    /* Không làm mờ toàn màn hình */
+    z-index: 1000;
+}
+
+/* Hộp nội dung popup */
+.playlist-popup-content {
+    background-color: #181818;
+    width: 420px;
+    max-height: 80vh;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    color: #ffffff;
+    font-family: inherit;
+}
+
+/* Header popup */
+.playlist-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.playlist-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.close-popup-btn {
+    background: none;
+    border: none;
+    color: #b3b3b3;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+}
+
+.close-popup-btn:hover {
+    color: #ffffff;
+}
+
+/* Thanh tìm kiếm */
+.playlist-search-box {
+    margin-bottom: 16px;
+}
+
+.playlist-search-box input {
+    width: 100%;
+    padding: 10px 14px;
+    background-color: #282828;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    color: #ffffff;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.playlist-search-box input:focus {
+    border-color: #1db954;
+}
+
+.playlist-search-box input::placeholder {
+    color: #727272;
+}
+
+/* Khu vực danh sách bài hát (có thanh cuộn nếu dài) */
+.playlist-songs-list {
+    overflow-y: auto;
+    max-height: 50vh;
+    padding-right: 4px;
+}
+
+/* Tùy chỉnh thanh cuộn nhỏ gọn kiểu Spotify */
+.playlist-songs-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.playlist-songs-list::-webkit-scrollbar-thumb {
+    background-color: #535353;
+    border-radius: 3px;
+}
+
+/* Thẻ chứa thông tin bài hát */
+.song-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    border-radius: 6px;
+    margin-bottom: 6px;
+    background-color: transparent;
+    transition: background-color 0.2s;
+}
+
+.song-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.song-title {
+    font-size: 14px;
+    color: #e1e1e1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 10px;
+}
+
+/* Nút X xóa bài hát */
+.remove-song-btn {
+    background: none;
+    border: none;
+    color: #b3b3b3;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 2px 6px;
+    border-radius: 4px;
+    transition: color 0.2s, background-color 0.2s;
+}
+
+.remove-song-btn:hover {
+    color: #ff4d4d;
+    background-color: rgba(255, 77, 77, 0.1);
+}

@@ -20,6 +20,7 @@ export async function getAllSongs() {
 export function playSong(songAudio, song, nowPlayingTitle) {
 
     songAudio.src = BASE_SONG_URL + song.songSignature;
+    songAudio.songInfo = song;  
 
     nowPlayingTitle.textContent = song.songName;
 

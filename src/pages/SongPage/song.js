@@ -116,6 +116,17 @@ async function setInitData() {
     // // Vô hiệu hóa nút (tự động tắt sáng và không bấm được)
     // nextBtn.disabled = true;
 
+    //CurrentSongList:
+
+    dom.openCurrentSongListButton.addEventListener('click', () => {
+        dom.currentSongListContainer.style.display = "flex";
+    });
+
+    dom.closeCurrentSongListBUtton.addEventListener('click', () => {
+        dom.currentSongListContainer.style.display = "none";
+
+    });
+
 }
 
 
